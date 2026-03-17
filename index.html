@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SALMONELLA PROTECTION</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --surface: #0a0a0a;
+      --text: #f0f0f0;
+      --text-muted: #aaa;
+      --accent: #ff4d4d;
+      --accent-glow: rgba(255, 77, 77, 0.5);
+      --success: #4caf50;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    #particles {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 12rem 1rem 8rem;
+      position: relative;
+    }
+
+    .title-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: 5.5rem;
+      font-weight: 900;
+      letter-spacing: -4px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 40px var(--accent-glow);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    h1.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .typed-cursor {
+      display: inline-block;
+      width: 5px;
+      height: 1.2em;
+      background: var(--accent);
+      vertical-align: middle;
+      animation: blink 0.8s step-end infinite;
+    }
+
+    .tagline {
+      font-size: 1.7rem;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 1.5rem auto 0;
+      opacity: 0;
+      transition: opacity 1.5s ease 0.5s;
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.8rem 8rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 4rem 3.5rem;
+      margin: 5rem 0;
+      border: 1px solid #111;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--accent);
+      font-size: 2.8rem;
+      margin-bottom: 1.8rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px; left: 0;
+      width: 100px;
+      height: 5px;
+      background: linear-gradient(to right, var(--accent), transparent);
+      border-radius: 3px;
+    }
+
+    .warning-box {
+      background: rgba(200,0,0,0.15);
+      border-left: 6px solid #c00;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+    .checklist li {
+      padding-left: 2.8rem;
+      position: relative;
+      margin: 1.4rem 0;
+      transition: all 0.4s ease;
+      font-size: 1.2rem;
+    }
+
+    .checklist li:hover {
+      transform: translateX(16px);
+      color: var(--accent);
+    }
+
+    .checklist li::before {
+      content: "✔";
+      color: var(--success);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .img-container {
+      text-align: center;
+      margin: 3.5rem 0;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(255,77,77,0.2);
+      transition: transform 0.7s ease;
+    }
+
+    img.hover-lift:hover {
+      transform: translateY(-16px) scale(1.05);
+    }
+
+    .key-principle {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--accent);
+      margin: 5rem 0 2.5rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    footer {
+      text-align: center;
+      padding: 6rem 1rem 4rem;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      border-top: 1px solid #111;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 4rem; }
+      .tagline { font-size: 1.5rem; }
+      section { padding: 3rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<header>
+  <div class="title-wrapper">
+    <h1 id="typed-title">SALMONELLA PROTECTION</h1>
+    <span class="typed-cursor"></span>
+  </div>
+  <p class="tagline">Essential, science-backed strategies to stop one of the most common preventable foodborne threats — updated with latest CDC guidance.</p>
+</header>
+
+<main>
+
+  <section id="what">
+    <h2>What is Salmonella?</h2>
+    <p>Salmonella bacteria cause salmonellosis, a major foodborne illness. These Gram-negative rods thrive in animal intestines and contaminate food through fecal matter. Per CDC (as of 2025–2026 data), it's still among the top causes of bacterial food poisoning in the US.</p>
+    
+    <div class="img-container">
+      <img src="https://thumbs.dreamstime.com/b/illustration-bacteria-including-salmonella-e-coli-common-cause-infection-medical-science-research-microbiology-biology-385610009.jpg" alt="Microscopic view of Salmonella bacteria in red tones" class="hover-lift">
+    </div>
+
+    <div class="warning-box">
+      <strong>Symptoms usually start 6–72 hours after exposure:</strong><br>
+      • Diarrhea (often bloody)<br>
+      • Fever >101°F<br>
+      • Severe cramps<br>
+      • Vomiting, nausea<br>
+      Lasts 4–7 days for most; seek care for high fever, bloody stools, dehydration, or if high-risk.
+    </div>
+
+    <p><strong>High-risk groups (per CDC):</strong></p>
+    <ul class="checklist">
+      <li>Children under 5</li>
+      <li>Adults 65+</li>
+      <li>Immunocompromised (e.g., diabetes, cancer treatment)</li>
+      <li>Pregnant people</li>
+    </ul>
+  </section>
+
+  <section id="spread">
+    <h2>How It Spreads</h2>
+    <p>Primarily fecal-oral: contaminated food/water or contact with animals/handlers.</p>
+    <ul class="checklist">
+      <li>Undercooked poultry, eggs, meat</li>
+      <li>Cross-contamination in kitchens</li>
+      <li>Unpasteurized dairy/juices</li>
+      <li>Contaminated produce (sprouts, melons)</li>
+      <li>Reptiles, baby poultry contact</li>
+      <li>Poor hand hygiene</li>
+    </ul>
+
+    <div class="img-container">
+      <img src="https://thumbs.dreamstime.com/b/intricate-details-salmonella-enterica-revealing-microscopic-world-bacteria-captivating-display-showcases-its-complex-391459773.jpg" alt="Detailed 3D Salmonella bacteria close-up" class="hover-lift">
+    </div>
+  </section>
+
+  <section id="prevent">
+    <h2>Prevention – CDC's Core 4 Steps</h2>
+    <p>Follow **Clean, Separate, Cook, Chill** religiously — these interrupt transmission at every point (latest CDC guidelines emphasize thermometer use and no rinsing raw poultry).</p>
+
+    <div class="img-container">
+      <img src="https://cdn1.justfreeslide.com/2025/07/SAFE-FOOD-HANDLING-PROCESS-4-STEPS.jpg" alt="Clean, Separate, Cook, Chill food safety infographic" class="hover-lift">
+    </div>
+
+    <div class="key-principle">CLEAN • SEPARATE • COOK • CHILL</div>
+
+    <ul class="checklist">
+      <li><strong>CLEAN:</strong> 20+ sec handwashing; sanitize surfaces/utensils after raw items. Never rinse raw chicken (aerosolizes bacteria).</li>
+      <li><strong>SEPARATE:</strong> Dedicated boards; raw meats bottom fridge shelf.</li>
+      <li><strong>COOK:</strong> Thermometer — poultry/ground meat 165°F (74°C); eggs fully firm. Avoid raw egg recipes unless pasteurized.</li>
+      <li><strong>CHILL:</strong> Refrigerate <2 hrs; fridge ≤40°F. Safe thawing only.</li>
+      <li>Avoid unpasteurized for vulnerable groups.</li>
+      <li>Don't cook if symptomatic.</li>
+    </ul>
+  </section>
+
+  <section style="text-align:center;">
+    <h2>Key Takeaway</h2>
+    <p style="font-size: 2.5rem; font-weight: 900; color: var(--accent); margin: 3rem 0; text-shadow: 0 0 35px var(--accent-glow);">
+      Raw animal products = potential hazard. Treat them accordingly.
+    </p>
+    <p style="color: var(--text-muted); font-size: 1.4rem; max-width: 840px; margin: 0 auto;">
+      These habits prevent most cases. Small actions protect families, especially kids and elderly.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Aligned with current CDC prevention guidelines • Knowledge prevents illness • Stay protected</p>
+</footer>
+
+<script>
+// Typing + final reveal
+const titleEl = document.getElementById('typed-title');
+const fullText = "SALMONELLA PROTECTION";
+let char = 0;
+
+function typeChar() {
+  if (char < fullText.length) {
+    titleEl.textContent += fullText[char];
+    char++;
+    setTimeout(typeChar, 90);
+  } else {
+    document.querySelector('.typed-cursor').style.display = 'none';
+    titleEl.classList.add('visible');
+    document.querySelector('.tagline').style.opacity = '1';
+  }
+}
+setTimeout(typeChar, 400);
+
+// Particles (subtle red dots floating like your screenshot)
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particles = [];
+const particleCount = 140;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+class Particle {
+  constructor() {
+    this.reset();
+  }
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2.5 + 0.8;
+    this.speedX = Math.random() * 0.6 - 0.3;
+    this.speedY = Math.random() * 0.6 - 0.3;
+    this.opacity = Math.random() * 0.4 + 0.15;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+  }
+  draw() {
+    ctx.globalAlpha = this.opacity;
+    ctx.fillStyle = '#ff4d4d';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function init() {
+  particles = [];
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+// Scroll reveals with delay
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 220);
+    }
+  });
+}, { threshold: 0.22 });
+
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
